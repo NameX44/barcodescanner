@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.Camera;
-import android.os.AsyncTask;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
@@ -68,7 +67,6 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
             rect.right = rect.right * cameraResolution.x / screenResolution.x;
             rect.top = rect.top * cameraResolution.y / screenResolution.y;
             rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
-
             mFramingRectInPreview = rect;
         }
         return mFramingRectInPreview;

@@ -56,9 +56,9 @@ public class ViewFinderView extends View {
             return;
         }
 
-        drawViewFinderMask(canvas);
-        drawViewFinderBorder(canvas);
-        drawLaser(canvas);
+        //drawViewFinderMask(canvas);
+        //drawViewFinderBorder(canvas);
+        //drawLaser(canvas);
     }
 
     public void drawViewFinderMask(Canvas canvas) {
@@ -136,9 +136,9 @@ public class ViewFinderView extends View {
             height = findDesiredDimensionInRange(PORTRAIT_HEIGHT_RATIO, viewResolution.y, MIN_FRAME_HEIGHT, PORTRAIT_MAX_FRAME_HEIGHT);
         }
 
-        int leftOffset = (viewResolution.x - width) / 2;
-        int topOffset = (viewResolution.y - height) / 2;
-        mFramingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
+        //int leftOffset = (viewResolution.x - width) / 2;
+        //int topOffset = (viewResolution.y - height) / 2;
+        mFramingRect = new Rect(0, 0, width, height / 2);
     }
 
     private static int findDesiredDimensionInRange(float ratio, int resolution, int hardMin, int hardMax) {

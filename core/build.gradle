@@ -1,6 +1,7 @@
 apply plugin: 'android-library'
 
 ext {
+        supportLibraryDependency = 'com.android.support:support-v4:21.0.3'
     isLibrary = true
     pomPackaging = "aar"
     pomArtifactId = "core"
@@ -9,11 +10,19 @@ ext {
 }
 
 dependencies {
-    compile supportLibraryDependency
+    compile 'com.android.support:support-v4:21.0.3'
 }
 
 android {
     defaultConfig {
         //applicationId "${project.group}.core"
     }
+}
+
+android.libraryVariants.all { variant ->
+    def name = variant.buildType.name
+    def task = project.tasks.create "jar${name.capitalize()}", Jar
+    task.dependsOn variant.javaCompile
+    task.from variant.javaCompile.destinationDir
+    artifacts.add('archives', task);
 }

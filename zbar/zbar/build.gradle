@@ -18,4 +18,13 @@ android {
     defaultConfig {
         //applicationId "${project.group}.zbar"
     }
+
+    sourceSets {
+        main  {
+            java {
+                srcDir 'java'
+            }
+        }
+    }
 }
+
