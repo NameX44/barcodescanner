@@ -4,13 +4,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'com.android.tools.build:gradle:1.1.0'
     }
 }
 
 allprojects {
     group = 'me.dm7.barcodescanner'
-    version = '1.6'
+    version = '1.6.3'
 
     repositories {
         mavenCentral()
@@ -28,7 +28,7 @@ allprojects {
 subprojects {
     afterEvaluate { Project project ->
         ext.pluginContainer = project.getPlugins()
-        if(ext.pluginContainer.hasPlugin("android") || ext.pluginContainer.hasPlugin("android-library")) {
+        if(ext.pluginContainer.hasPlugin("com.android.application") || ext.pluginContainer.hasPlugin("com.android.library")) {
             android {
                 compileSdkVersion 21
                 buildToolsVersion '21.1.2'
@@ -42,8 +42,8 @@ subprojects {
                 defaultConfig {
                     minSdkVersion 9
                     targetSdkVersion 21
-                    versionCode 16
-                    versionName "1.6"
+                    versionCode 163
+                    versionName "1.6.3"
                 }
             }
         }
