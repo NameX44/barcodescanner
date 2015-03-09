@@ -69,6 +69,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         mSurfaceCreated = false;
         stopCameraPreview();
+        mCamera.setPreviewCallback(null);
+        mCamera.release();
     }
 
     public void showCameraPreview() {
@@ -211,4 +213,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             mAutoFocusHandler.postDelayed(doAutoFocus, 1000);
         }
     };
+
+
 }
